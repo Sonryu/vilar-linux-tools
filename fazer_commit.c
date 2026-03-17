@@ -5,7 +5,7 @@
 int main ( int argc, char *argv[] ){
 	
 if(argc < 3){
-	fprintf(stderr, "Erro: Argumentos insuficientes.\n");
+	fprintf(stderr, "\033[1;31mErro: Argumentos insuficientes.\033[1;31m\n");
 	fprintf(stderr, "Uso: %s [branch] [\"mensagem do commit\"]\n", argv[0]);
 	return 1;
 }
@@ -22,7 +22,7 @@ const char *formatos[] = {
 };
 
 
-printf("--- INICIANDO: vilar-git (C Version) ---\n");
+printf("\n\033[1;3m--- INICIANDO: vilar-git (C Version) ---\033[1;3m\n");
 for (int i = 0; i < 3; i++) {
         
         if (i == 0) {
@@ -34,17 +34,17 @@ for (int i = 0; i < 3; i++) {
         }
 
         
-        printf("Executando: %s\n", comando);
+        printf("\033[1mExecutando: %s\033[1m\n", comando);
         int status = system(comando);
 
         if (status != 0) {
-            fprintf(stderr, "Erro ao executar comando. Status: %d\n", status);
+            fprintf(stderr, "\n\033[1;31m[!] Erro ao executar comando. Status: %d\033[0m\n", status);
             return 1; // Para o programa se um comando falhar
         }
     }
 
 
-printf("--- SUCESSOR! ---\n");
+printf("\n\033[1;3;32m--- SUCESSO! ---\033[0m\n\n");
 return 0;
 
 }
